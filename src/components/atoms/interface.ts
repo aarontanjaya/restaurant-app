@@ -7,6 +7,6 @@ export type CustomStyleProps = {
 };
 export type ButtonProps = AntdButtonProps & CustomStyleProps;
 
-export interface CardProps extends React.ComponentProps<"div"> {
-  type: string;
+export interface ImageProps extends React.ComponentProps<"img"> {
+  imgClassName?: string;
 }
