@@ -7,6 +7,7 @@ const Image: React.FC<ImageProps> = ({ className, imgClassName, ...props }) => {
     <div className={`${className ? className : ""}`}>
       <img
         className={`${imgClassName ? imgClassName : ""} ${styles.image} `}
+        loading="lazy"
         {...props}
       />
     </div>
