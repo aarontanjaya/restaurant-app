@@ -12,6 +12,7 @@ export interface MenuItem {
   name: string;
   available: boolean;
   priceInMinorUnit: number;
+  description?: string;
   imgHref: string;
   modifierGroups: ModifierGroup[];
   priceV2: PriceV2;
@@ -26,7 +27,7 @@ export interface ModifierGroup {
   available: boolean;
   selectionRangeMin: number;
   selectionRangeMax: number;
-  modifier: ItemModifier[];
+  modifiers: ItemModifier[];
 }
 export interface ItemModifier {
   ID: string;

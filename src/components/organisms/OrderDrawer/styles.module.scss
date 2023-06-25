@@ -1,0 +1,28 @@
+@import "../../../styles/variables.scss";
+
+.img__product{
+    height: 300px;
+    width: 300px;
+
+}
+
+.img__product__container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width:$breakpoint-mobile){
+    .img__product{
+        height: 350px;
+        width: 350px;
+    }
+}
+
+@media screen and (min-width:$breakpoint-desktop){
+    .img__product{
+        height: 400px;
+        width: 400px;
+    }
+}
+
