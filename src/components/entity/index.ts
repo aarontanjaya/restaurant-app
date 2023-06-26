@@ -1,3 +1,12 @@
+export interface CartItem {
+  ID?: string;
+  item: MenuItem;
+  modifiers: ModifierItem[];
+  note: string;
+  quantity: number;
+  price: number;
+}
+
 export interface Category {
   ID?: string;
   name: string;
@@ -27,9 +36,9 @@ export interface ModifierGroup {
   available: boolean;
   selectionRangeMin: number;
   selectionRangeMax: number;
-  modifiers: ItemModifier[];
+  modifiers: ModifierItem[];
 }
-export interface ItemModifier {
+export interface ModifierItem {
   ID: string;
   name: string;
   available: boolean;
