@@ -1,3 +1,9 @@
+export interface Order {
+  totalPrice: number;
+  items: CartItem[];
+  date: string;
+}
+
 export interface CartItem {
   ID?: string;
   item: MenuItem;
