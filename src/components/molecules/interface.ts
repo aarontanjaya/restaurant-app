@@ -1,5 +1,5 @@
 import { CartItem, ModifierItem, MenuItem } from "../entity";
-import { ModifierGroup } from "../entity";
+import { ModifierGroup, Order } from "../entity";
 
 export type ButtonQuantityProps = React.ComponentProps<"div"> & {
   onIncrement: () => void;
@@ -17,6 +17,10 @@ export interface CardProps extends React.ComponentProps<"div"> {
 
 export interface CartItemProps extends React.ComponentProps<"div"> {
   item: CartItem;
+}
+
+export interface CardTransactionProps extends React.ComponentProps<"div"> {
+  item: Order;
 }
 
 export interface FormModifierProps {

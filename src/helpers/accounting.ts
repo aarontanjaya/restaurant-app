@@ -19,3 +19,7 @@ export function getItemPrice(
 
   return price / 100;
 }
+
+export const formatAmount = (amount: number): string => {
+  return new Intl.NumberFormat("id-ID").format(+amount.toFixed(2));
+};

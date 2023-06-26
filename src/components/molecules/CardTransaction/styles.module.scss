@@ -1,0 +1,38 @@
+@import "../../../styles/variables.scss";
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    box-shadow: $primary-shadow;
+}
+
+.content{
+    position: relative;
+    word-wrap: break-word;
+    width:100%;
+    height:inherit;
+    padding: 0.5rem;
+}
+
+.image{
+    width: 100px;
+    height: 100px;
+    margin-right: 1rem;
+}
+
+.button{
+    bottom: 0.5rem;
+    position: absolute;
+    right: 1rem;
+}
+
+@media screen and (min-width:$breakpoint-tablet) {
+    .container{
+        display:flex;
+        flex-shrink: 1;
+    }
+    .content{
+        height: 100%;
+    }
+}
