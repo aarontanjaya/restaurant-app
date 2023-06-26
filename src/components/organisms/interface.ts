@@ -9,3 +9,7 @@ export type OrderDrawerProps = DrawerProps & {
   item: MenuItem | null;
   onCloseDrawer: () => void;
 };
+
+export type CartDrawerProps = DrawerProps & {
+  onCloseDrawer: () => void;
+};

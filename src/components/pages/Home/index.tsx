@@ -2,18 +2,20 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { HomeProps } from "../interfaces";
 import { CardMenuItem } from "@/components/molecules";
-import { MenuItemList, OrderDrawer } from "@/components/organisms";
+import { CartDrawer, MenuItemList, OrderDrawer } from "@/components/organisms";
 import { MenuResponse } from "@/components/entity/api";
 import { Category, MenuItem } from "@/components/entity";
 import useFetch from "@/hooks/useFetch";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { breakpoints } from "@/styles/variables";
 import styles from "./styles.module.scss";
+import { Button } from "@/components/atoms";
 
 const Home: React.FC<HomeProps> = ({}) => {
   const [data, setData] = useState<Category[]>([]);
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
-  const [openDrawer, setOpenDrawer] = useState<boolean>(false);
+  const [openOrderDrawer, setOpenOrderDrawer] = useState<boolean>(false);
+  const [openCartDrawer, setOpenCartDrawer] = useState<boolean>(false);
   const isDesktop = useMediaQuery(`(min-width:${breakpoints.tablet})`);
   const isDesktopLarge = useMediaQuery(`(min-width:${breakpoints.desktop})`);
   const {
@@ -24,12 +26,12 @@ const Home: React.FC<HomeProps> = ({}) => {
   } = useFetch<MenuResponse>(`${process.env.REACT_APP_URL}/api/menu`);
 
   const handleItemClick = (item: MenuItem) => {
-    setOpenDrawer(true);
+    setOpenOrderDrawer(true);
     setSelectedItem(item);
   };
 
   const handleDrawerClose = () => {
-    setOpenDrawer(false);
+    setOpenOrderDrawer(false);
   };
 
   useEffect(() => {
@@ -38,6 +40,7 @@ const Home: React.FC<HomeProps> = ({}) => {
 
   return (
     <div className={styles.container}>
+      <Button onClick={() => setOpenCartDrawer(true)}>cart</Button>
       {data
         ? data.map((item, idx) => {
             return (
@@ -49,13 +52,21 @@ const Home: React.FC<HomeProps> = ({}) => {
             );
           })
         : null}
+      <CartDrawer
+        onClose={() => setOpenCartDrawer(false)}
+        onCloseDrawer={() => setOpenCartDrawer(false)}
+        open={openCartDrawer}
+        placement={isDesktop ? "right" : "bottom"}
+        height={"100%"}
+        width={isDesktopLarge ? 500 : 400}
+      />
       <OrderDrawer
         onClose={handleDrawerClose}
         onCloseDrawer={handleDrawerClose}
         placement={isDesktop ? "right" : "bottom"}
         height={"100%"}
         width={isDesktopLarge ? 500 : 400}
-        open={openDrawer}
+        open={openOrderDrawer}
         item={selectedItem}
       />
     </div>

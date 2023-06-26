@@ -1,5 +1,6 @@
+import ButtonQuantity from "./ButtonQuantity";
 import Card from "./Card";
 import CardMenuItem from "./CardMenuItem";
 import FormModifier from "./FormModifier";
 
-export { Card, CardMenuItem, FormModifier };
+export { ButtonQuantity, Card, CardMenuItem, FormModifier };
