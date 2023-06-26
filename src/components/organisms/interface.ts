@@ -7,4 +7,5 @@ export interface MenuItemListProps {
 
 export type OrderDrawerProps = DrawerProps & {
   item: MenuItem | null;
+  onCloseDrawer: () => void;
 };

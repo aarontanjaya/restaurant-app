@@ -14,7 +14,7 @@ const FormModifier: React.FC<FormModifierProps> = ({ modifiers }) => {
           {item.modifiers ? (
             <Form.Item
               key={`${item.ID}-${item.name}`}
-              name={["modifier", idx]}
+              name={["modifiers", idx]}
               rules={[
                 {
                   required:

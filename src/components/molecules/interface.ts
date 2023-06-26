@@ -1,4 +1,4 @@
-import { ItemModifier, MenuItem } from "../entity";
+import { ModifierItem, MenuItem } from "../entity";
 import { ModifierGroup } from "../entity";
 export interface CardMenuItemProps {
   item: MenuItem;
@@ -14,5 +14,5 @@ export interface FormModifierProps {
 }
 
 export interface ModifierLabelProps {
-  modifier: ItemModifier;
+  modifier: ModifierItem;
 }
