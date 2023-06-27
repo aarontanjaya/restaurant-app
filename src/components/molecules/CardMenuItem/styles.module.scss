@@ -27,6 +27,17 @@
     right: 1rem;
 }
 
+.price__container{
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.discount{
+    text-decoration: line-through;
+}
+
 @media screen and (min-width:$breakpoint-tablet) {
     .container{
         display:flex;
