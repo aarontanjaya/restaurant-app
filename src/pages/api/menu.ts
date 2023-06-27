@@ -2,11 +2,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { MenuResponse } from "@/components/entity/api";
 import * as fs from "fs";
 
-export const config = {
-  runtime: "edge",
-  regions: ["sin1"],
-};
-
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<MenuResponse>
