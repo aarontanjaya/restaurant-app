@@ -1,7 +1,7 @@
 import Head from "next/head";
+import { ReactElement } from "react";
 import Image from "next/image";
-import { Inter } from "next/font/google";
-import { CardMenuItem } from "@/components/molecules";
+import { UserLayout } from "@/components/layout";
 import { Home } from "@/components/pages";
 
 export default function HomePage() {
@@ -21,3 +21,7 @@ export default function HomePage() {
     </>
   );
 }
+
+HomePage.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};

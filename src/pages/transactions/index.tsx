@@ -1,5 +1,7 @@
 import Head from "next/head";
+import { ReactElement } from "react";
 import { Transactions } from "@/components/pages";
+import { UserLayout } from "@/components/layout";
 
 export default function TransactionsPage() {
   return (
@@ -18,3 +20,7 @@ export default function TransactionsPage() {
     </>
   );
 }
+
+TransactionsPage.getLayout = function getLayout(page: ReactElement) {
+  return <UserLayout>{page}</UserLayout>;
+};
