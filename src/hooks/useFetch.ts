@@ -17,7 +17,6 @@ const useFetch = <T>(url: string): FetchReturn<T> => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log("datnya", data);
         setData(data as T);
       })
       .catch((err) => {
