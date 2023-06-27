@@ -29,6 +29,19 @@
     justify-content: right;
 }
 
+.item__name{
+    font-weight: 500;
+    padding-bottom:0.5rem;
+}
+
+.modifier{
+    color: $text-secondary;
+}
+
+.price{
+    padding-top: 2rem;
+}
+
 @media screen and (min-width:$breakpoint-tablet) {
     .container{
         display:flex;

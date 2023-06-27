@@ -3,9 +3,10 @@ import { Drawer } from "antd";
 import { CartDrawerProps } from "../interface";
 import { Button } from "@/components/atoms";
 import { CartContext } from "@/components/providers/CartProvider";
-import CartItem from "@/components/molecules/CartItem";
-import styles from "./styles.module.scss";
 import { Order } from "@/components/entity";
+import CartItem from "@/components/molecules/CartItem";
+import { formatAmount } from "@/helpers/accounting";
+import styles from "./styles.module.scss";
 const CartDrawer: React.FC<CartDrawerProps> = ({
   open,
   onClose,
@@ -39,11 +40,18 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
       total += item.price * item.quantity;
     });
     setTotalPrice(total);
+    if (!cart || cart.length == 0) {
+      onCloseDrawer();
+    }
   }, [cart]);
   return (
     <Drawer open={open} onClose={onClose} {...props}>
       {cart ? cart.map((item) => <CartItem item={item} />) : null}
-      <p>{totalPrice}</p>
+      <div className={styles.order__total}>
+        <p className={styles.subtotal}>Subtotal</p>
+        <p>{`Rp. ${formatAmount(totalPrice)}`}</p>
+      </div>
+
       <Button
         onClick={() => handlePlaceOrder()}
         className={styles.btn__order}

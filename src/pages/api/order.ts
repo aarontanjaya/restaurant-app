@@ -16,7 +16,7 @@ export default function handler(
       const jsonData = JSON.parse(jsonString) as Order[];
       const newData = JSON.parse(req.body) as Order;
       console.log("new order", newData);
-      jsonData.push(newData);
+      jsonData.unshift(newData);
       fs.writeFileSync(
         "src/mocks/orders.json",
         JSON.stringify(jsonData),
