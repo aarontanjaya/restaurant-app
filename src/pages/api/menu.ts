@@ -8,7 +8,11 @@ export default function handler(
   res: NextApiResponse<MenuResponse>
 ) {
   try {
-    const jsonString = fs.readFileSync("public/mocks/getMenu.json", "utf-8");
+    const publicDirectory = path.join(process.cwd(), "public");
+    const jsonString = fs.readFileSync(
+      publicDirectory + "/mocks/getMenu.json",
+      "utf-8"
+    );
     const jsonData = JSON.parse(jsonString);
     res.status(200).json(jsonData as MenuResponse);
   } catch (err) {
