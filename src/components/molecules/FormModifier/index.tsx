@@ -10,7 +10,11 @@ const FormModifier: React.FC<FormModifierProps> = ({ modifiers }) => {
     <div>
       {modifiers.map((item, idx) => (
         <div key={`${item.ID}-${item.name}`}>
-          <h4>{item.name}</h4>
+          <h4>{`${item.name} ${
+            item.selectionRangeMin && item.selectionRangeMin >= 1
+              ? "(pick at least 1)"
+              : ""
+          }`}</h4>
           {item.modifiers ? (
             <Form.Item
               key={`${item.ID}-${item.name}`}

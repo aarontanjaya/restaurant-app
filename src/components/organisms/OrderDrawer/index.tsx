@@ -19,7 +19,9 @@ const OrderDrawer: React.FC<OrderDrawerProps> = ({
   ...props
 }) => {
   const { dispatch } = useContext(CartContext);
-  const description = item?.description ? <p>{item.description}</p> : null;
+  const description = item?.description ? (
+    <p className={styles.description}>{item.description}</p>
+  ) : null;
   const [form] = useForm();
 
   const handleFinish = (val: any) => {
@@ -57,7 +59,7 @@ const OrderDrawer: React.FC<OrderDrawerProps> = ({
             imgClassName={styles.img__product}
             src={item.images[0]}
           />
-          <h2>{item.name}</h2>
+          <h3 className={styles.item__name}>{item.name}</h3>
           {description}
           <Form form={form} name="modifiers" onFinish={handleFinish}>
             <Form.Item name="item" initialValue={item} />

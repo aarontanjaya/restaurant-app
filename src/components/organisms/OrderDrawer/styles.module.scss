@@ -22,6 +22,12 @@
     font-weight: 700;
 }
 
+.description{
+    padding-top: 1rem;
+    color: $red-primary;
+    font-weight: 700;
+}
+
 @media screen and (min-width:$breakpoint-mobile){
     .img__product{
         height: 350px;
