@@ -2,10 +2,41 @@
 
 .container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-grow: 1;
     box-shadow: $primary-shadow;
 }
+
+.content__container{
+    display: flex;
+    flex-direction: row;
+}
+
+.item__name{
+    font-weight: 500;
+    padding-bottom: 0.3rem;
+}
+
+.item__detail{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    padding-top: 0.5rem;
+    .item__quantity{
+        font-size: 0.8rem;
+    }
+}
+
+.date{
+    padding-top: 0.5rem;
+}
+
+.text__breakdown{
+    font-weight: 700;
+    padding-top: 1rem;
+}
+
 
 .content{
     position: relative;
@@ -22,9 +53,7 @@
 }
 
 .button{
-    bottom: 0.5rem;
-    position: absolute;
-    right: 1rem;
+    width: 100%;
 }
 
 @media screen and (min-width:$breakpoint-tablet) {

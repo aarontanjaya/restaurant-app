@@ -1,0 +1,21 @@
+@import "../../../styles/variables.scss";
+
+.container{
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.page__title{
+    font-weight: 700;
+    padding: 2rem 0;
+    color: $red-primary;
+}
+
+@media screen and (min-width: $breakpoint-tablet){
+    .container{
+        width: 80%;
+        margin: 0 auto;
+        padding: 0;
+    }
+}
+
