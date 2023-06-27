@@ -17,7 +17,7 @@ const CardMenuItem: React.FC<CardMenuItemProps> = ({ item, onItemClick }) => {
         src={item.thumbImages ? item.thumbImages[0] : ""}
       />
       <div className={styles.content}>
-        <h3>{item.name}</h3>
+        <h3 className={styles.item__name}>{item.name}</h3>
         {item.discountedPriceV2 &&
         item.discountedPriceV2.amountInMinor != item.priceV2.amountInMinor ? (
           <div className={styles.price__container}>

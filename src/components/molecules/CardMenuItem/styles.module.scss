@@ -38,6 +38,11 @@
     text-decoration: line-through;
 }
 
+.item__name{
+    font-size: 1.5rem;
+    font-weight:500;
+}
+
 @media screen and (min-width:$breakpoint-tablet) {
     .container{
         display:flex;

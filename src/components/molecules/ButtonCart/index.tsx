@@ -11,6 +11,7 @@ const ButtonCart: React.FC<ButtonCartProps> = ({ ...props }) => {
   return (
     <Badge className={styles.cart__btn} count={cart.length}>
       <Button
+        disabled={!cart || cart.length == 0}
         type="primary"
         shape="circle"
         icon={<ShoppingCartOutlined />}
