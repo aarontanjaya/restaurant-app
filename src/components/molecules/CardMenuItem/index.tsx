@@ -7,9 +7,6 @@ import { PlusOutlined } from "@ant-design/icons";
 import styles from "./styles.module.scss";
 
 const CardMenuItem: React.FC<CardMenuItemProps> = ({ item, onItemClick }) => {
-  const price = item.discountedPriceV2
-    ? getNumberOrDefault(item.discountedPriceV2.amountInMinor)
-    : getNumberOrDefault(item.priceV2.amountInMinor);
   return (
     <Card className={styles.container}>
       <Image

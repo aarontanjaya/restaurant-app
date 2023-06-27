@@ -1,7 +1,7 @@
 @import "../../../styles/variables.scss";
 
 .container{
-    margin: 2rem;
+    margin: 1rem;
 }
 
 .title{
@@ -24,6 +24,10 @@
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
     }
+
+    .container{
+        margin: 2rem;
+    }
 }
 
 @media screen and (min-width: $breakpoint-desktop){
@@ -31,5 +35,9 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
+    }
+
+    .container{
+        margin: 2rem;
     }
 }
