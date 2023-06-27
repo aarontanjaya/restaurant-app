@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { HomeProps } from "../interfaces";
-import { CardMenuItem } from "@/components/molecules";
+import { ButtonCart, CardMenuItem } from "@/components/molecules";
 import { CartDrawer, MenuItemList, OrderDrawer } from "@/components/organisms";
 import { MenuResponse } from "@/components/entity/api";
 import { Category, MenuItem } from "@/components/entity";
@@ -10,6 +10,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { breakpoints } from "@/styles/variables";
 import styles from "./styles.module.scss";
 import { Button } from "@/components/atoms";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 
 const Home: React.FC<HomeProps> = ({}) => {
   const [data, setData] = useState<Category[]>([]);
@@ -40,7 +41,6 @@ const Home: React.FC<HomeProps> = ({}) => {
 
   return (
     <div className={styles.container}>
-      <Button onClick={() => setOpenCartDrawer(true)}>cart</Button>
       {data
         ? data.map((item, idx) => {
             return (
@@ -52,6 +52,7 @@ const Home: React.FC<HomeProps> = ({}) => {
             );
           })
         : null}
+      <ButtonCart onClick={() => setOpenCartDrawer(true)} />
       <CartDrawer
         onClose={() => setOpenCartDrawer(false)}
         onCloseDrawer={() => setOpenCartDrawer(false)}

@@ -1,11 +1,19 @@
-import { CartItem, ModifierItem, MenuItem } from "../entity";
-import { ModifierGroup, Order } from "../entity";
+import {
+  CartItem,
+  ModifierItem,
+  MenuItem,
+  ModifierGroup,
+  Order,
+} from "../entity";
+import { ButtonProps } from "../atoms/interface";
 
 export type ButtonQuantityProps = React.ComponentProps<"div"> & {
   onIncrement: () => void;
   onDecrement: () => void;
   value: number;
 };
+
+export type ButtonCartProps = ButtonProps;
 export interface CardMenuItemProps {
   item: MenuItem;
   onItemClick?: (val: MenuItem) => void;
