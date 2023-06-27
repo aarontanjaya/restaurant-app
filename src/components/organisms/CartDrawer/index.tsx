@@ -3,17 +3,19 @@ import { Drawer } from "antd";
 import { CartDrawerProps } from "../interface";
 import { Button } from "@/components/atoms";
 import { CartContext } from "@/components/providers/CartProvider";
-import { Order } from "@/components/entity";
+import { CartItem as CartItemEntity, Order } from "@/components/entity";
 import CartItem from "@/components/molecules/CartItem";
+import { clearCart } from "@/reducers/cart";
 import { formatAmount } from "@/helpers/accounting";
 import styles from "./styles.module.scss";
+
 const CartDrawer: React.FC<CartDrawerProps> = ({
   open,
   onClose,
   onCloseDrawer,
   ...props
 }) => {
-  const { cart } = useContext(CartContext);
+  const { cart, dispatch } = useContext(CartContext);
   const [totalPrice, setTotalPrice] = useState<number>(0);
 
   const handlePlaceOrder = () => {
@@ -27,8 +29,8 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
       body: JSON.stringify(currentOrder),
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log("datnya", data);
+      .then(() => {
+        dispatch(clearCart({} as CartItemEntity));
       })
       .catch((err) => {
         console.log(err);

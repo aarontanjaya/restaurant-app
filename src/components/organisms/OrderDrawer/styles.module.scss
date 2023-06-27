@@ -18,6 +18,10 @@
     margin-bottom: 3rem;
 }
 
+.item__name{
+    font-weight: 700;
+}
+
 @media screen and (min-width:$breakpoint-mobile){
     .img__product{
         height: 350px;
