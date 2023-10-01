@@ -1,30 +1,20 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { HomeProps } from "../interfaces";
-import { ButtonCart, CardMenuItem } from "@/components/molecules";
-import { CartDrawer, MenuItemList, OrderDrawer } from "@/components/organisms";
-import { MenuResponse } from "@/components/entity/api";
-import { Category, MenuItem } from "@/components/entity";
-import useFetch from "@/hooks/useFetch";
-import useMediaQuery from "@/hooks/useMediaQuery";
-import { breakpoints } from "@/styles/variables";
-import styles from "./styles.module.scss";
-import { Button } from "@/components/atoms";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { HomeProps } from '../interfaces';
+import { ButtonCart, CardMenuItem } from '@/components/molecules';
+import { CartDrawer, MenuItemList, OrderDrawer } from '@/components/organisms';
+import { Category, MenuItem } from '@/components/entity';
+import useMediaQuery from '@/hooks/useMediaQuery';
+import { breakpoints } from '@/styles/variables';
+import styles from './styles.module.scss';
 
-const Home: React.FC<HomeProps> = ({}) => {
+const Home: React.FC<HomeProps> = ({ data: res }) => {
   const [data, setData] = useState<Category[]>([]);
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const [openOrderDrawer, setOpenOrderDrawer] = useState<boolean>(false);
   const [openCartDrawer, setOpenCartDrawer] = useState<boolean>(false);
   const isDesktop = useMediaQuery(`(min-width:${breakpoints.tablet})`);
   const isDesktopLarge = useMediaQuery(`(min-width:${breakpoints.desktop})`);
-  const {
-    data: res,
-    loading,
-    error,
-    errorMessage,
-  } = useFetch<MenuResponse>(`${process.env.REACT_APP_URL}/api/menu`);
 
   const handleItemClick = (item: MenuItem) => {
     setOpenOrderDrawer(true);
@@ -37,7 +27,7 @@ const Home: React.FC<HomeProps> = ({}) => {
 
   useEffect(() => {
     setData(res ? res.categories : data);
-  }, [loading]);
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -57,15 +47,15 @@ const Home: React.FC<HomeProps> = ({}) => {
         onClose={() => setOpenCartDrawer(false)}
         onCloseDrawer={() => setOpenCartDrawer(false)}
         open={openCartDrawer}
-        placement={isDesktop ? "right" : "bottom"}
-        height={"100%"}
+        placement={isDesktop ? 'right' : 'bottom'}
+        height={'100%'}
         width={isDesktopLarge ? 500 : 400}
       />
       <OrderDrawer
         onClose={handleDrawerClose}
         onCloseDrawer={handleDrawerClose}
-        placement={isDesktop ? "right" : "bottom"}
-        height={"100%"}
+        placement={isDesktop ? 'right' : 'bottom'}
+        height={'100%'}
         width={isDesktopLarge ? 500 : 400}
         open={openOrderDrawer}
         item={selectedItem}

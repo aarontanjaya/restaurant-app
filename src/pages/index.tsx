@@ -1,10 +1,12 @@
-import Head from "next/head";
-import { ReactElement } from "react";
-import Image from "next/image";
-import { UserLayout } from "@/components/layout";
-import { Home } from "@/components/pages";
+import Head from 'next/head';
+import { ReactElement } from 'react';
+import Image from 'next/image';
+import { HomeProps } from '@/components/pages/interfaces';
+import { UserLayout } from '@/components/layout';
+import { Home } from '@/components/pages';
+import type { GetServerSideProps } from 'next';
 
-export default function HomePage() {
+export default function HomePage({ data }: HomeProps) {
   return (
     <>
       <Head>
@@ -14,7 +16,7 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Home />
+        <Home data={data} />
       </div>
     </>
   );
@@ -22,4 +24,16 @@ export default function HomePage() {
 
 HomePage.getLayout = function getLayout(page: ReactElement) {
   return <UserLayout>{page}</UserLayout>;
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  res.setHeader('Cache-Control', 'public, max-age=10');
+  const resp = await fetch(`${process.env.REACT_APP_URL}/api/menu`);
+  const data = await resp.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
 };

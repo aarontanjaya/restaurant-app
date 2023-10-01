@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-interface FetchReturn<T> {
+export interface FetchReturn<T> {
   data: T | undefined;
   loading: boolean;
   error: boolean;

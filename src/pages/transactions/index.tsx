@@ -4,6 +4,7 @@ import { Transactions } from "@/components/pages";
 import { UserLayout } from "@/components/layout";
 
 export default function TransactionsPage() {
+  const test = "";
   return (
     <>
       <Head>
